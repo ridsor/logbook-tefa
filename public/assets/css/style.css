@@ -1,0 +1,150 @@
+* {
+    font-family: "Roboto", sans-serif;
+}
+
+a *,
+a {
+    text-decoration: none !important;
+    color: #444;
+}
+.fill-menu {
+    fill: #0d6efd !important;
+}
+
+.kegiatan p {
+    margin-bottom: 0px;`
+}
+
+.btn-menu:hover .fill-menu {
+    fill: #fff !important;
+}
+
+.btn-login span {
+    color: #0d6efd !important;
+}
+
+.btn-login:hover span {
+    color: #fff !important;
+}
+
+.text-one {
+    color: #4a4a4a;
+}
+
+.destinasi-lainnya:hover {
+    text-decoration: underline !important;
+}
+
+.w-full {
+    width: 100% !important;
+}
+.h-full {
+    height: 100% !important;
+}
+
+.min-w-fit {
+    min-width: fit-content !important;
+}
+
+.destinasi-item {
+    pointer-events: none;
+    transition: 200ms;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    overflow: hidden;
+    position: relative;
+}
+
+.destinasi-img img {
+    width: 350px;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+}
+
+.fs-7 {
+    font-size: 14px !important;
+}
+
+.max-w-map {
+    max-width: 600px !important;
+}
+
+.destinasi-title {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#menu {
+    top: 100%;
+    left: 0;
+    opacity: 0;
+    transition: 200ms;
+    border-radius: 5px;
+    pointer-events: none;
+}
+
+#menu.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.w-fit {
+    width: fit-content !important;
+}
+
+.pointer-event-none {
+    pointer-events: none !important;
+}
+
+.slider-wrapper {
+    position: relative;
+}
+
+.slider {
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-behavior: smooth;
+    white-space: nowrap;
+    scrollbar-width: none;
+}
+
+.button-prev-slider,
+.button-next-slider {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 20;
+    display: block;
+    border: 1px solid #777;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    transition: 200ms;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.button-next-slider {
+    right: -10px;
+}
+
+.button-prev-slider {
+    left: -10px;
+}
+
+.detail-destinasi .destinasi-img img {
+    height: 400px !important;
+}
+
+thead tr th.min-w-400 {
+    min-width: 400px;
+}
+thead tr th {
+    white-space: nowrap;
+}
+
+.bg-one {
+    background-color: #e1e8f3;
+}
