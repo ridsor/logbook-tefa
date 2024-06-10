@@ -8,21 +8,35 @@
 <script src="./assets/js/jquery.min.js"></script>
 <script src="./assets/js/quiljs.min.js"></script>
 <script>
-  const quill = new Quill('#editor', {
+  const quill1 = new Quill('#editor_kegiatan', {
     theme: 'snow',
     placeholder: 'Kegiatan...',
     
   });
   
-  const deskripsi = document.getElementById('kegiatan');
+  const kegiatan = document.getElementById('kegiatan');
   document.getElementById('form_modal_logbook').addEventListener('submit',function(e) {
-    if(quill.getText() !== '\n' && quill.getText() !== 'Harap isi bidang ini.\n') {
-      const delta = quill.getSemanticHTML();
-      deskripsi.value = delta;
+    if(quill1.getText() !== '\n' && quill1.getText() !== 'Harap isi bidang ini.\n') {
+      const delta = quill1.getSemanticHTML();
+      kegiatan.value = delta;
       } else {
         e.preventDefault();
-      quill.setText('Harap isi bidang ini.')
+      quill1.setText('Harap isi bidang ini.')
     }
+  });  
+
+  const quill2 = new Quill('#editor_catatan', {
+    theme: 'snow',
+    placeholder: 'Catatan...',
+  });
+  
+  const catatan = document.getElementById('catatan');
+  document.getElementById('form_modal_verifikasi_logbook').addEventListener('submit',function(e) {
+
+    e.target.diterima.innerText = 'Loading...';
+    e.target.ditolak.innerText = 'Loading...';
+    e.target.ditolak.setAttribute('disabled',true)
+    e.target.diterima.setAttribute('disabled',true)
   });  
 
   $(document).ready(function(){
@@ -41,7 +55,7 @@
           $('#form_modal_delete_logbook').attr('action',`/logbook/${logbook}`);
       });
       $('#modal_verifikasi_logbook').on('show.bs.modal', function (e) {
-          var logbook = $(e.relatedTarget).data('logbook')
+          var logbook = $(e.relatedTarget).data('logbook') ?? '{!! Session::get('validation_verifikasilogbook') !!}';
           $('#form_modal_verifikasi_logbook').attr('action',`/logbook/${logbook}/verifikasi`);
           $('#diterima').on('click', function(e) {
             $('#status').val('diterima')
@@ -60,17 +74,18 @@
     e.target.submit.innerText = 'Loading...';
     e.target.submit.setAttribute('disabled',true)
   })
-  $('#form_modal_verifikasi_logbook').on('submit', function(e) {
-    e.target.diterima.innerText = 'Loading...';
-    e.target.ditolak.innerText = 'Loading...';
-    e.target.ditolak.setAttribute('disabled',true)
-    e.target.diterima.setAttribute('disabled',true)
-  })
   </script>
   @session("validation_logbook")
   <script>
     $(function() {
       $('#modal_logbook').modal('show');
+    });
+  </script>
+  @endsession
+  @session("validation_verifikasilogbook")
+  <script>
+    $(function() {
+      $('#modal_verifikasi_logbook').modal('show');
     });
   </script>
   @endsession
@@ -94,6 +109,7 @@
                             <th scope="col" class="min-w-400 text-light bg-primary">Kegiatan</th>
                             <th scope="col" class="text-light bg-primary">Waktu Masuk</th>
                             <th scope="col" class="text-light bg-primary">Waktu Keluar</th>
+                            <th scope="col" class="text-light bg-primary min-w-400">Catatan</th>
                             <th scope="col" class="text-light bg-primary">Status</th>
                             <th scope="col" class="text-light bg-primary">Aksi</th>
                           </tr>
@@ -114,9 +130,16 @@
                             <td valign='middle'>
                               {{ $row['waktu keluar'] }}
                               </td>
+                            <td valign='middle'>
+                              @if(!$row['catatan'])
+                              -
+                              @else
+                              {!! $row['catatan'] !!}
+                              @endif
+                            </td>
                             <td valign='middle'>{{ $row['status'] }}</td>
                             <td valign='middle'>
-                              <div class="d-block">
+                              <div class="d-flex gap-2">
                                 @if($row['status'] === 'belum diverifikasi')
                                 <a href='#modal_verifikasi_logbook' data-logbook="{{$row['id']}}" data-bs-toggle="modal" class="btn btn-warning text-light btn-sm px-3">
                                 Verifikasi

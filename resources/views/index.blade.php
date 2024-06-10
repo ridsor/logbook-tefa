@@ -79,6 +79,7 @@
                             <th scope="col" class="min-w-400 text-light bg-primary">Kegiatan</th>
                             <th scope="col" class="text-light bg-primary">Waktu Masuk</th>
                             <th scope="col" class="text-light bg-primary">Waktu Keluar</th>
+                            <th scope="col" class="text-light bg-primary min-w-400">Catatan</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -86,7 +87,7 @@
                           <tr>
                             <td valign='middle' class='text-center'>{{ ++$i }}</td>
                             <td valign='middle'>{{ $row['nama'] }}</td>
-                            <td valign='middle' class="kegiatan">
+                            <td valign='middle' class="kegiatan text-center">
                               @if(!$row['kegiatan'])
                               -
                               @else
@@ -103,6 +104,13 @@
                               </div>
                               @else
                               {{ $row['waktu keluar'] }}
+                              @endif
+                            </td>
+                            <td valign='middle' class="text-center">
+                              @if(!$row['catatan'])
+                              -
+                              @else
+                              {!! $row['catatan'] !!}
                               @endif
                             </td>
                           </tr>

@@ -113,6 +113,7 @@ class LogbookController extends Controller
     public function verifikasi(Logbook $logbook, Request $request) {
         $validator = Validator::make($request->all(), [
             'status' => 'string|max:100',
+            'catatan' => 'string|nullable'
         ]);
 
         if ($validator->fails()) {
@@ -125,7 +126,7 @@ class LogbookController extends Controller
         $validated = $validator->validated();
  
         // Retrieve a portion of the validated input...
-        $validated = $validator->safe()->only(['status']);
+        $validated = $validator->safe()->only(['status','catatan']);
 
         $logbook->update($validated);
 

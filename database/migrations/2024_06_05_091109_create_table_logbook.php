@@ -17,6 +17,7 @@ return new class extends Migration
             $table->text('kegiatan')->nullable();
             $table->timestampTz('waktu masuk', precision: 0)->default(\DB::raw('CURRENT_TIMESTAMP'));
             $table->timestampTz('waktu keluar', precision: 0)->nullable();
+            $table->text('catatan')->nullable();
             $table->string('status',100)->default('belum diverifikasi');
         });
     }

@@ -26,7 +26,7 @@
           <div class="mb-3">
             <label for="kegiatan" class="form-label">Kegiatan</label>
             <input type="hidden" name="kegiatan" id="kegiatan"/>
-            <div id="editor" class="bg-light"></div>
+            <div id="editor_kegiatan" class="bg-light"></div>
           </div>
           <div class="mb-3">
             <label for="waktu_masuk" class="form-label">Waktu Masuk</label>
