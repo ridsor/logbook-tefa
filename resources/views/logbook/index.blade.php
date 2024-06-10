@@ -1,12 +1,12 @@
 @extends('layouts.main')
 
 @section('css')
-<link href="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.snow.css" rel="stylesheet" />
+<link href="./assets/css/quiljs.min.css" rel="stylesheet" />
 @endsection
 
 @section('js')
-<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.js"></script>
+<script src="./assets/js/jquery.min.js"></script>
+<script src="./assets/js/quiljs.min.js"></script>
 <script>
   const quill = new Quill('#editor', {
     theme: 'snow',
