@@ -27,9 +27,8 @@
 
   $(document).ready(function(){
       $('#modal_logbook').on('show.bs.modal', function (e) {
-          var logbook = $(e.relatedTarget).data('logbook') ?? {!! Session::get('validation_logbook') !!}
-          console.log(logbook);
-          $('#nama').val(logbook.nama)
+          var logbook = $(e.relatedTarget).data('logbook') ?? '{!! Session::get('validation_logbook') !!}';
+          $('#nama').val(logbook.nama);
           quill.clipboard.dangerouslyPasteHTML(logbook.kegiatan);
           $('#waktu_masuk').val(logbook['waktu masuk'])
           $('#waktu_keluar').val(logbook['waktu keluar'])
@@ -38,12 +37,11 @@
       });
 
       $('#modal_delete_logbook').on('show.bs.modal', function (e) {
-          var logbook = $(e.relatedTarget).data('logbook') ?? {!! Session::get('validation_verifikasilogbook') !!}
+        var logbook = $(e.relatedTarget).data('logbook')
           $('#form_modal_delete_logbook').attr('action',`/logbook/${logbook}`);
       });
       $('#modal_verifikasi_logbook').on('show.bs.modal', function (e) {
           var logbook = $(e.relatedTarget).data('logbook')
-          console.log(logbook)
           $('#form_modal_verifikasi_logbook').attr('action',`/logbook/${logbook}/verifikasi`);
           $('#diterima').on('click', function(e) {
             $('#status').val('diterima')

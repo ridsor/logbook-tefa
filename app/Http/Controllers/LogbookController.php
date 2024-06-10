@@ -98,7 +98,14 @@ class LogbookController extends Controller
         // Retrieve a portion of the validated input...
         $validated = $validator->safe()->only(['nama','kegiatan','waktu_masuk','waktu_keluar']);
 
-        $logbook->update($validated);
+        $payload = [
+            'nama' => $validated['nama'],
+            'kegiatan' => $validated['kegiatan'],
+            'waktu masuk' => $validated['waktu_masuk'],
+            'waktu keluar' => $validated['waktu_keluar'],
+        ];
+
+        $logbook->update($payload);
 
         return redirect('/logbook');
     }
