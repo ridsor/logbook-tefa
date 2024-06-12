@@ -3,7 +3,7 @@
     <nav class="navbar navbar-expand-lg navbar-light">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a href="index.php" class="d-flex align-items-center mb-md-0 text-dark text-decoration-none gap-2">
+          <a href="/" class="d-flex align-items-center mb-md-0 text-dark text-decoration-none gap-2">
             <!-- <img src="./assets/img/logo.png" alt="" width=36> -->
             <span class="fs-4 fw-bold" style="white-space:nowrap">
               Teaching Factory
