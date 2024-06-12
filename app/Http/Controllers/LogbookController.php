@@ -81,9 +81,9 @@ class LogbookController extends Controller
     public function update(Logbook $logbook, Request $request) {
         $validator = Validator::make($request->all(), [
             'nama' => 'string|max:100',
-            'kegiatan' => 'string',
-            'waktu_masuk' => 'date_format:Y-m-d H:i:s',
-            'waktu_keluar' => 'date_format:Y-m-d H:i:s'
+            'kegiatan' => 'nullable|string',
+            'waktu_masuk' => 'nullable|date_format:Y-m-d H:i:s',
+            'waktu_keluar' => 'nullable|date_format:Y-m-d H:i:s'
         ]);
 
         if ($validator->fails()) {

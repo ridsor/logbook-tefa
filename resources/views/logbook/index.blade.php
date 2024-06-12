@@ -43,7 +43,8 @@
       $('#modal_logbook').on('show.bs.modal', function (e) {
           var logbook = $(e.relatedTarget).data('logbook') ?? '{!! Session::get('validation_logbook') !!}';
           $('#nama').val(logbook.nama);
-          quill.clipboard.dangerouslyPasteHTML(logbook.kegiatan);
+          console.log(logbook)
+          quill1.clipboard.dangerouslyPasteHTML(logbook.kegiatan);
           $('#waktu_masuk').val(logbook['waktu masuk'])
           $('#waktu_keluar').val(logbook['waktu keluar'])
 
